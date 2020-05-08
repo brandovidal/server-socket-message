@@ -2,6 +2,7 @@ import express from 'express';
 import { SERVER_PORT } from '../global/enviroments';
 import socketIO from 'socket.io';
 import http from 'http';
+// import kill from 'kill-port';
 
 import * as socket from '../sockets/sockets';
 
@@ -31,18 +32,27 @@ export default class Server {
         console.log('Escuchando conecciones - sockets');
         
         this.io.on('connection', cliente => {
-            console.log('Nuevo cliente conectado');
-            
+            console.log('Nuevo cliente conectado', cliente.id);
+    
             // Mensaje
             socket.mensaje(cliente, this.io);
 
             // desconectar
             socket.desconectar(cliente);
+ 
+            // configurar Usuario
+            socket.configurarUsuario(cliente, this.io);
 
         });
     }
 
     start = (callback: Function) => {
         this.httpServer.listen(this.port, callback());
+
+        // kill(this.port)
+        // .then(() => {
+        //     console.log('kill port ok')
+        // })
+        // .catch(() => console.log('kill pot not found'));
     }
 }
