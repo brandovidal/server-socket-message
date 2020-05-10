@@ -13,10 +13,7 @@ router.post('/mensajes', (req: Request, res: Response) => {
     const cuerpo = req.body.cuerpo;
     const de = req.body.de;
 
-    const payload = {
-        de,
-        cuerpo
-    };
+    const payload = { de, cuerpo };
 
     const server = Server.instance;
     server.io.emit('mensaje-nuevo', payload);
