@@ -18,7 +18,8 @@ export class UsuariosLista {
                 break;
             }
         }
-        console.log('====== Actualizando usuario =======', this.lista);        
+        console.log('====== Actualizando usuario =======');
+        console.log(this.lista);
     }
 
     public getLista() {

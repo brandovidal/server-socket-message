@@ -33,7 +33,8 @@ export default class Server {
         
         this.io.on('connection', cliente => {
             console.log('Nuevo cliente conectado', cliente.id);
-    
+            socket.conectarCliente(cliente);
+            
             // Mensaje
             socket.mensaje(cliente, this.io);
 
