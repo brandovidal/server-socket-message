@@ -2,6 +2,7 @@ import { Socket } from 'socket.io';
 import { UsuariosLista } from '../classes/usuarios-lista';
 import { Usuario } from '../classes/usuario';
 
+
 export const usuariosConectados = new UsuariosLista();
 
 export const conectarCliente = (cliente: Socket, io: SocketIO.Server) => {
