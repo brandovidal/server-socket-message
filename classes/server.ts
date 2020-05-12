@@ -14,6 +14,7 @@ export default class Server {
 
     public io: socketIO.Server;
     private httpServer: http.Server;
+    
 
     private constructor() {
         this.app = express();
