@@ -1,5 +1,5 @@
 # Socket-Server
-*Servidor Socket de mensajes, adicionalmente agregue una pantalla index que typescript interpreta como HTML,asimismo también tiene una pequeña conexión de prueba a MySql*
+*Servidor Socket de mensajes, adicionalmente agregue una pantalla de inicio que Typescript interpreta como HTML*
 
 ## Previsualiación
 !["Página de inicio"](https://ik.imagekit.io/demoxd/node-server-message_GXKRZN9Ix.png?tr=w-1080,h-566,fo-auto "Página de inicio")
@@ -11,7 +11,7 @@ npm install
 
 ## Comandos de la aplicación
 
-*Iniciar el servidor en desarrollo*
+*Iniciar el servidor en desarrollo en el puerto 5000*
 ```
     npm run dev
 ```
