@@ -1,5 +1,5 @@
 # Socket-Server
-*Servidor Socket de mensajes, adicionalmente agregue una pantalla index que typescript interpreta como HTML*
+*Servidor Socket de mensajes, adicionalmente agregue una pantalla index que typescript interpreta como HTML,asimismo también tiene una pequeña conexión de prueba a MySql*
 
 ## Previsualiación
 !["Página de inicio"](https://ik.imagekit.io/demoxd/node-server-message_GXKRZN9Ix.png?tr=w-1080,h-566,fo-auto "Página de inicio")
