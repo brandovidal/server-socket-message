@@ -1,9 +1,37 @@
 import { Router, Request, Response } from 'express';
 import Server from '../classes/server';
 import { usuariosConectados } from '../sockets/sockets';
+import Email from '../model/email';
+
+const email = new Email();
+
+import {html} from '../static/index.html';
 
 export const router = Router();
-router.get('/mensajes', (req: Request, res: Response) => {
+router.get('/', (_req: Request, res: Response) => {
+    console.log('Pagina Inicial');
+    res.send(html);
+});
+
+router.get('/email', (_req: Request, res: Response) => {
+    console.log('Pagina email');
+    email.obtener()
+    .then(email => {
+        console.log('email ', email);
+        res.json({
+            ok: true,
+            body : {
+                email
+            }
+        })
+        // res.send('email Page', {email : email});
+    })
+    .catch(err => {
+        return res.status(500).send('Error en el servidor');
+    })
+});
+
+router.get('/mensajes', (_req: Request, res: Response) => {
     res.json({
         ok: true,
         mensaje: 'Todo esta bien'
@@ -46,7 +74,7 @@ router.post('/mensajes/:id', (req: Request, res: Response) => {
     });
 });
 
-router.get('/usuarios', (req: Request, res: Response) => {
+router.get('/usuarios', (_req: Request, res: Response) => {
     const server = Server.instance;
     server.io.clients((err: any, clientes: string[]) => {
         if(err) {
@@ -56,7 +84,6 @@ router.get('/usuarios', (req: Request, res: Response) => {
     })
 });
 
-router.get('/usuarios/detalle', (req: Request, res: Response) => {
-    
+router.get('/usuarios/detalle', (_req: Request, res: Response) => {
     res.json({ ok: true, clientes: usuariosConectados.getLista() });
 });

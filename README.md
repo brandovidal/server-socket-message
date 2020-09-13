@@ -1,17 +1,32 @@
 # Socket-Server
+**Servidor Socket de mensajes, adicionalmente agregue una pantalla index que typescript interpreta como HTML**
 
-Reconstruir modulos de Node
+## Previsualiación
+!["Página de inicio"](https://ik.imagekit.io/demoxd/node-server-message_GXKRZN9Ix.png?tr=w-1080,h-566,fo-auto "Página de inicio")
+
+## Instalar modulos de Node
 ```
 npm install
 ```
 
-Generar el DIST
+## Comandos de la aplicación
+
+**Iniciar el servidor en desarrollo**
 ```
-tsc -w
+    npm run dev
 ```
 
-Levantar el servidor, cualquiera de los comandos
+**Iniciar el servidor en producción**
 ```
-nodemon dist/
-node dist/
+    npm start
+```
+
+**Generar el archivo y revisar cambios ./docs**
+```
+    npm run watch
+```
+
+**Borrar el archivo ./docs**
+```
+    npm run clean
 ```
