@@ -1,9 +1,6 @@
 import { Router, Request, Response } from 'express';
 import Server from '../classes/server';
 import { usuariosConectados } from '../sockets/sockets';
-import User from '../model/user';
-
-const user = new User();
 
 import {html} from '../static/index.html';
 
@@ -11,24 +8,6 @@ export const router = Router();
 router.get('/', (_req: Request, res: Response) => {
     console.log('Pagina Inicial');
     res.send(html);
-});
-
-router.get('/user', (_req: Request, res: Response) => {
-    console.log('listado Usuarios');
-    user.obtener()
-    .then(user => {
-        console.log('user ', user);
-        res.json({
-            ok: true,
-            body : {
-                user
-            }
-        })
-        // res.send('email Page', {email : email});
-    })
-    .catch(err => {
-        return res.status(500).send('Error en el servidor');
-    })
 });
 
 router.get('/mensajes', (_req: Request, res: Response) => {
