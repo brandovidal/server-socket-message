@@ -1,9 +1,9 @@
 import { Router, Request, Response } from 'express';
 import Server from '../classes/server';
 import { usuariosConectados } from '../sockets/sockets';
-import Email from '../model/email';
+import User from '../model/user';
 
-const email = new Email();
+const user = new User();
 
 import {html} from '../static/index.html';
 
@@ -13,15 +13,15 @@ router.get('/', (_req: Request, res: Response) => {
     res.send(html);
 });
 
-router.get('/email', (_req: Request, res: Response) => {
-    console.log('Pagina email');
-    email.obtener()
-    .then(email => {
-        console.log('email ', email);
+router.get('/user', (_req: Request, res: Response) => {
+    console.log('listado Usuarios');
+    user.obtener()
+    .then(user => {
+        console.log('user ', user);
         res.json({
             ok: true,
             body : {
-                email
+                user
             }
         })
         // res.send('email Page', {email : email});
